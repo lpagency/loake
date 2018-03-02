@@ -81,10 +81,15 @@ $(document).ready(function()
         'operator' :'or',
         'onLoad': function(products) 
         {
-            // if (products.length === 0)
-            // {
-            //     $(".products").html("no hay productos con estos filtros");
-            // }
+            for(var x=0; x<products.length; x++)
+            {
+                if(products[x].tags.indexOf("accesorios") > -1)
+                {
+                    $(".img-pro").css("object-fit", "cover");
+                    $(".img-pro").css("padding-bottom", "35px");
+                    $(".img-pro").css("margin-top" ,"20px");
+                }
+            }
         }
     };
 
