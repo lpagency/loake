@@ -49,6 +49,11 @@
     if(hyper == 'accesorios')
     {
       $(".l-accesorios").removeClass("hidden");
+      setTimeout(function(){
+        $(".img-pro").css("object-fit", "cover");
+        $(".img-pro").css("padding-bottom", "35px");
+        $(".img-pro").css("margin-top" ,"20px");
+      },2000);
     }
 
     if(hyper == 'complementos')
