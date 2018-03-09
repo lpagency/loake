@@ -73,7 +73,7 @@ $(document).ready(function()
         'app_public': app_public,
         'base_url': base_url,
         'products_per_page' : 9, 
-        'tag': tag,
+        'tag': 'web_loake,' + tag,
         'ignore_stock': false,
         'infinite_scroll': true,
         // 'maxProducts': 100,
