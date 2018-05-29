@@ -19,6 +19,11 @@ li{
 	list-style: none;
 }
 
+.no-margin
+{
+    margin-left: 0px !important;
+}
+
 div.upload input, div.image-upload input {
     position: absolute;
     left: auto;
