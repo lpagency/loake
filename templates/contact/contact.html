@@ -17,29 +17,11 @@
         //Expresión para validar edad de 18 a 60 años
         var expr2 = /^1[8-9]|[2-5]\d|60$/;
 
-        // VALIDATE THE CAPTCHA
-        var allowSubmit = false;
-
-        function capcha_filled ()
+        $(document).ready(function()
         {
-            allowSubmit = true;
-        }
-
-        function capcha_expired ()
-        {
-            allowSubmit = false;
-        }
-
-        function check_if_capcha_is_filled (e)
-        {
-            if(allowSubmit) return true;
-            e.preventDefault();
-            alert('Fill in the capcha!');
-        }
-
-        $(document).ready(function(){
             //función click
-            $("#bEnviar").click(function(){
+            $("#bEnviar").click(function()
+            {
 
                 //Guardar en variables el valor que tengan las cajas de texto
                 //Por medio de los id's
@@ -95,7 +77,15 @@
                 {
                     return false;
                 }
-            });//click
+
+                var response = grecaptcha.getResponse();
+
+                if(response == "")
+                {
+                    $(".help-captcha").removeClass('hidden');
+                    return false;
+                }
+            });
         });//ready
 </script>
 <script type="text/javascript" src="{{ site_base }}/{{ nocache_static }}/js/frubik.js"></script>
@@ -210,6 +200,7 @@
                                 <span id="helpBlock4" class="hidden help-block help-comentario">Escribe tu Mensaje</span>
                             </div>
                             <div class="g-recaptcha" data-callback="capcha_filled" data-expired-callback="capcha_expired" data-sitekey="6Ld5n14UAAAAAAyHfX-a99b51cKJGfVjeSs0oYhn"></div>
+                            <span id="helpBlock4" class="hidden help-block help-captcha">Por favor valida que eres un humano</span>
                             <p><button name="submit" id="bEnviar" type="submit" class="btn btn-store btn-block contact" data-error-message="Error!" data-sending-message="Sending..." data-ok-message="Email Sent">Enviar mensaje </button></p>
                             <input type="hidden" name="submitted" id="submitted3" value="true">
                         </form> 
