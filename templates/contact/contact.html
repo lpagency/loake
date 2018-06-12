@@ -16,6 +16,27 @@
         var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
         //Expresión para validar edad de 18 a 60 años
         var expr2 = /^1[8-9]|[2-5]\d|60$/;
+
+        // VALIDATE THE CAPTCHA
+        var allowSubmit = false;
+
+        function capcha_filled ()
+        {
+            allowSubmit = true;
+        }
+
+        function capcha_expired ()
+        {
+            allowSubmit = false;
+        }
+
+        function check_if_capcha_is_filled (e)
+        {
+            if(allowSubmit) return true;
+            e.preventDefault();
+            alert('Fill in the capcha!');
+        }
+
         $(document).ready(function(){
             //función click
             $("#bEnviar").click(function(){
@@ -75,27 +96,6 @@
                     return false;
                 }
             });//click
-
-            // VALIDATE THE CAPTCHA
-            var allowSubmit = false;
-
-            function capcha_filled ()
-            {
-                allowSubmit = true;
-            }
-
-            function capcha_expired ()
-            {
-                allowSubmit = false;
-            }
-
-            function check_if_capcha_is_filled (e)
-            {
-                if(allowSubmit) return true;
-                e.preventDefault();
-                alert('Fill in the capcha!');
-            }
-
         });//ready
 </script>
 <script type="text/javascript" src="{{ site_base }}/{{ nocache_static }}/js/frubik.js"></script>
