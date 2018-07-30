@@ -13,4 +13,4 @@ var checkout_url = $.environmentVar(
     'https://pay.loadingplay.com',
     'https://pay.loadingplay.com',
     'https://pay.loadingplay.com');
-var app_public = $.environmentVar(54,54,54);
+var app_public = $.environmentVar('loake','loake','loake');
