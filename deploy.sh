@@ -24,8 +24,26 @@ done
 
 # switch to production configuration
 if [[ $tag == "PROD" ]]; then
-    SERVER_IPS=$(curl -XGET https://loadingplay.github.io/deploy/prod.txt)
+    SERVER_TAG="app"
 fi
+
+# switch to production configuration
+echo -n "getting server ips..."
+for SERV_TAG in $SERVER_TAG
+do
+    tag_ips=$(curl -s -X GET -H "Content-Type: application/json" -H "Authorization: Bearer $DO_KEY" "https://api.digitalocean.com/v2/droplets?tag_name=$SERV_TAG" | \
+    python3 -c "
+import sys, json
+json_data = json.load(sys.stdin)
+for x in json_data['droplets']:
+    for n in x['networks']['v4']:
+        if n['type'] == 'public':
+            print(n['ip_address'])
+")
+    SERVER_IPS+=" "
+    SERVER_IPS+=$tag_ips
+done
+echo "ok"
 
 # add hosts if neccesary
 if [[ $add_hosts ]]; then
