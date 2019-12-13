@@ -259,6 +259,42 @@ hr.za {
     overflow: hidden;
 }
 
+/*MODAL PROMO 13-DIC*/
+
+.close-promo 
+{
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #c3c3c3 !important;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+  background: none;
+  border: none;
+}
+
+.image-promo 
+{
+  width: 100%;
+}
+
+.modal-body-promo
+{
+  background:#231e1d;
+}
+
+@media (min-width: 800px)
+{
+  .modal-dialog-promo
+  {
+    max-width: 800px !important;
+    margin: 1.75rem auto;
+  }
+}
+
+/*MODAL PROMO 13-DIC*/
+
 /*------------------------------------Responsive-------------------------------------------------------*/
 @media(max-width: 1199px){
        .container.min{
