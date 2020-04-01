@@ -90,25 +90,6 @@
 
     <!-- **modal categorias productos** -->
         
-        
-    <!-- MODAL NUEVO ANUNCIO -->
-        
-    <div class="modal fade" id="modalPromo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog-promo" role="document">
-        <div class="modal-content">
-          <div class="modal-body-promo">
-            <button type="button" class="close-promo" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-                <img class="image-promo" src="https://cdn.loadingplay.com/static/images/027081a191cc43525e49b41f28193709_Open_Kennedy_contorneado_pagestojpg.png" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-        
-    <!-- FIN MODAL NUEVO ANUNCIO --> 
-        
-        
     <!-- gif loading editableimage -->
     <img id="imgLOAD" width="50" height="50" src="{{ site_base }}/common/css/loading.gif" />
     <script type="text/javascript">
@@ -207,15 +188,7 @@
             <td></td>
         </tr>
 
-    </script>
-
-    <!--SCRIPT MODAL NUEVO ANUNCIO-->
-    <script type="text/javascript">
-        $(window).on('load',function(){
-            $('#modalPromo').modal('show');
-        });
-    </script>
-    <!--SCRIPT MODAL NUEVO ANUNCIO-->   
+    </script>  
         
     <script type="text/x-template" id="shopping-cart-checkout-form">
         <form action="{{! checkout_url}}" method="get" novalidate id="shipping-form" class="myform">
